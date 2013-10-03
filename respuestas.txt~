@@ -61,8 +61,6 @@ Respuesta: "he" ,"o" y "hello".
 
 Respuesta: En g quedará la cadena "hello world".
 
-------------------------------------------------------HASTA AQUÍ LLEGUÉ EN LA HORA DE PRÁCTICAS---------------------------------------------
-
 28. ¿Qué queda en e?
 
 >> e = ’.’*3

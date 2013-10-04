@@ -4,20 +4,21 @@ Respuesta a las cuestiones de la práctica nº3
 
 18. Escriba el programa que muestra por la consola la frase "Hola Mundo". ¿Qué significado tienela salida? (puts ’Hola Mundo’)
 
-Respuesta = Muestra por pantalla el mensaje 'Hola Mundo'.
+Respuesta = Muestra por pantalla el mensaje 'Hola Mundo' ya que puts sirve para mostrar por pantalla retornando nil.
 
 21. ¿Qué diferencia hay entre "\t\n" y ’\t\n’?
 
-Respuesta: "\t\n" Interpreta y muestra un tabuluador y un salto de linea.
+Respuesta: "\t\n" utilizando comillas dobles interpreta y muestra un tabuluador y un salto de linea.
 	   '\t\n' usando comillas simples interpreta y muestra una cadena literal "\\t\\n".
 
 
 22. ¿Cómo funciona %q? ¿Qué es %q{hello world\n}? ¿Qué es %q{’a’ ’b’ ’c’}?
 
-Respuesta: Funciona de manera similar a las comillas simples. 
-	   Muestra literalmente la cadena hello world (lo que este contenido entre las llaves) interpretando \n como salto de linea.
+Respuesta: su funcionamiento es la de delimitador simple de cadenas. Delimita las cadenas entre comillas simples. El salto de linea no lo interpreta.
 
 23. ¿Cómo funciona %Q? ¿Qué es %Q{hello world\n}? ¿Qué es %Q{"a" "b" "c"}?
+
+Respuesta: Es un delimitador doble para cadenas entre comillas dobles y duplica el simbolo \.
 
 24. ¿Qué queda en c?
 
@@ -43,7 +44,9 @@ irb(main):009:0’ --#{a}--
 irb(main):010:0’ --#{b}--
 irb(main):011:0’ HERE
 
-Respuesta:Almacena en c el nombre de las variables pero no su contenido. "--\#{a}--\n--\#{b}--\n" 
+Respuesta: Almacenara en c las cadenas de forma literal, ya que se encuentra en comillas simples o lo que es lo mismo:
+
+--#{a}-- y --#{b}
 
 26. s = "hello". ¿Cúal es el valor de las siguientes expresiones?
 
@@ -59,41 +62,74 @@ Respuesta: "he" ,"o" y "hello".
 => "hello"
 >> g << " world"
 
-Respuesta: En g quedará la cadena "hello world".
+Respuesta: En g quedará la cadena "hello world", ya que se concatenan los elementos.
+
 
 28. ¿Qué queda en e?
 
 >> e = ’.’*3
 
-29. ¿Cu ́al es el resultado?
+Respuesta: En e quedará almacenada la repetición del punto 3 veces ya que el simbolo * repetirá tantas veces como se indique el simbolo '.'
+
+29. ¿Cuál es el resultado?
+
 >> a = 1
 => 1
 >> "#{a=a+1} "*3
-30. ¿Qu ́e es esto?
+
+Respesta: => 2 2 2
+
+30. ¿Qué es esto?
+
 %w[this is a test]
-31. ¿Qu ́e es esto?
+
+Respuesta: => ["this", "is", "a", "test"]
+	   Un array de tipo cadenas que almacena 3 elementos.
+
+31. ¿Qué es esto?
+
 %w[\t \n]
-32. ¿Qu ́e es esto?
+
+Respuesta: => ["\\t", "\\n"]
+	   Un array que contiene los caracteres \t y \n y duplica las \.
+
+32. ¿Qué es esto?
+
 %W[\t \n]
-33. ¿Qu ́e contiene
-nils
-?
+
+Respuesta: ["\t", "\n"]
+	   Un array que contiene una tabulación y un salto de linea. 
+
+33. ¿Qué contiene nils?
+
 nils = Array.new(3)
-34. ¿Qu ́e contiene
-zeros
-?
+
+Respuesta: => [nil, nil, nil]
+	   Un array con 3 elementos nulos.
+
+34. ¿Qué contiene zeros?
+
 zeros = Array.new(3, 0)
-35. ¿Qu ́e queda en
-b
-?
+
+Respuest: => [0, 0, 0]
+	  Un array con 3 elementos de valor 0.
+
+35. ¿Qué queda en b?
+
 >> x = [[1,2],[3,4]]
 => [[1, 2], [3, 4]]
 >> b = Array.new(x)
-36. ¿Qu ́e queda en
-c
-?
+
+Respuesta: [[1, 2], [3, 4]]
+
+36. ¿Qué queda en c?
+
 >> c = Array.new(3) { |i| 2*i }
-37. ¿Cu ́al es el resultado de cada una de estas operaciones?
+
+Respuesta: [0, 2, 4]
+
+37. ¿Cuál es el resultado de cada una de estas operaciones?
+
 >> a = (’a’..’e’).to_a
 => ["a", "b", "c", "d", "e"]
 >> a[1,1]
@@ -106,7 +142,22 @@ c
 =>
 >> a[-2..-1]
 =>
-38. ¿Cu ́al es el resultado de cada una de estas operaciones?
+
+Respuesta: >> a = (’a’..’e’).to_a
+           => ["a", "b", "c", "d", "e"]
+           >> a[1,1]
+           => [“b”]
+           >> a[-2,2]
+           => ["d", "e"]
+           >> a[0..2]
+           => ["a", "b", "c"]    
+           >> a[0...1]
+           => ["a"]
+           >> a[-2..-1]
+           => ["d", "e"]
+
+38. ¿Cuál es el resultado de cada una de estas operaciones?
+
 >> a
 => ["a", "b", "c", "d", "e"]
 >> a[0,2] = %w{A B}
@@ -134,7 +185,37 @@ c
 => nil
 >> a
 =>
-39. ¿Cu ́al es el resultado de cada una de estas operaciones?
+
+Respuesta: >> a
+           => ["a", "b", "c", "d", "e"]
+    	   >> a[0,2] = %w{A B}
+           => ["A", "B"]
+           >> a
+           => ["A", "B", "c", "d", "e"]
+           >> a[2..5] = %w{C D E}
+           => ["C", "D", "E"]
+           >> a
+           => ["A", "B", "C", "D", "E"]
+           >> a[0,0] = [1,2,3]
+           => [1, 2, 3]
+           >> a
+           => [1, 2, 3, 3, "A", "B", "C", "D", "E"]
+           >> a[0,2] = []
+           => []
+           >> a
+           => [3, 3, "A", "B", "C", "D", "E"]
+           >> a[-1,1] = [ ’Z’ ]
+           => ["Z"]
+           >> a
+           => ["a", "b", "c", "d", "Z"]
+           >> a[-2,2] = nil
+           => nil
+           >> a
+           => ["a", "b", "c"]                
+
+
+39. ¿Cuál es el resultado de cada una de estas operaciones?
+
 >> a = (1...4).to_a
 =>
 >> a = a + [4, 5]
@@ -142,15 +223,38 @@ c
 >> a += [[6, 7, 8]]
 =>
 >> a = a + 9
-40. ¿Cu ́al es el resultado de cada una de estas operaciones?
+
+Respuesta: >> a = (1...4).to_a
+           => [1, 2, 3, 4]
+           >> a = a + [4, 5]
+           => [1, 2, 3, 4, 4, 5]
+           >> a += [[6, 7, 8]]
+           => [1, 2, 3, 4, 4, 5, [6, 7, 8]]
+           >> a = a + 9
+           TypeError: can't convert Fixnum into Array
+
+40. ¿Cuál es el resultado de cada una de estas operaciones?
+
 >> x = %w{a b c b a}
 =>
 >> x = x - %w{b c d}
 =>
-41. ¿Cu ́al es el resultado de cada una de estas operaciones?
+
+Respuesta: >> x = %w{a b c b a}
+           => ["a", "b", "c", "b", "a"]
+           >> x = x - %w{b c d}
+           => ["a", "a"]
+
+41. ¿Cuál es el resultado de cada una de estas operaciones?
+
 >> z = [0]*8
 =>
-42. ¿Cu ́al es el resultado de cada una de estas operaciones?
+
+Respuesta:  >> z = [0]*8
+            => [0, 0, 0, 0, 0, 0, 0, 0]
+
+42. ¿Cuál es el resultado de cada una de estas operaciones?
+
 >> a = []
 => []
 >> a << 1
@@ -161,7 +265,20 @@ c
 =>
 >> a.concat [7, 8]
 =>
-43. ¿Cu ́al es el resultado de cada una de estas operaciones?
+
+Respuesta:  >> a = []
+            => []
+            >> a << 1
+            => [1]
+            >> a << 2 << 3
+            => [1, 2, 3]
+            >> a << [4, 5, 6]
+            => [1, 2, 3, [4, 5, 6]]
+            >> a.concat [7, 8]
+            => [1, 2, 3, [4, 5, 6], 7, 8]
+
+43. ¿Cuál es el resultado de cada una de estas operaciones?
+
 >> a = [1, 1, 2, 2, 3, 3, 4]
 => [1, 1, 2, 2, 3, 3, 4]
 >> b = [5, 5, 4, 4, 3, 3, 2]
@@ -174,7 +291,22 @@ c
 =>
 >> f = b & a
 =>
-44. ¿Qu ́e resultados dan las siguientes operaciones?
+
+Respuesta: >> a = [1, 1, 2, 2, 3, 3, 4]
+           => [1, 1, 2, 2, 3, 3, 4]
+           >> b = [5, 5, 4, 4, 3, 3, 2]
+           => [5, 5, 4, 4, 3, 3, 2]
+           >> c = a | b
+           => [1, 2, 3, 4, 5]
+           >> d = b | a
+           => [5, 4, 3, 2, 1]
+           >> e = a & b
+           => [2, 3, 4]
+           >> f = b & a
+           => [4, 3, 2]
+
+44. ¿Qué resultados dan las siguientes operaciones?
+
 4
 >> a = 1..10
 => 1..10
@@ -192,7 +324,28 @@ c
 =>
 >> b.step(2) {|x| print "#{x} " }
 >> 1..3.to_a
-45. ¿Qu ́e resultados dan las siguientes operaciones?
+
+Respuesta:  >> a = 1..10
+            => 1..10
+            >> a.class
+            => Range
+            >> a.to_a
+            => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]	
+            >> b = 1...10
+            => 1....10
+            >> b.to_a
+            => [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            >> b.include? 10
+            => false
+            >> b.include? 8
+            => true
+            >> b.step(2) {|x| print "#{x} " }
+            => 1 3 5 7 9 => 1...10
+            >> 1..3.to_a
+
+
+45. ¿Qué resultados dan las siguientes operaciones?
+
 >> r = 0...100
 => 0....100
 >> r.member? 50
@@ -201,7 +354,17 @@ c
 =>
 >> r.member? 99.9
 =>
-46. ¿Qu ́e resultados dan las siguientes operaciones?
+
+Respuesta: >> r = 0...100
+           => 0....100
+           >> r.member? 50
+           => true
+           >> r.include? 99.9
+           => true
+           >> r.member? 99.9
+           => true
+46. ¿Qué resultados dan las siguientes operaciones?
+
 >> true.class
 =>
 >> false.class
@@ -212,7 +375,23 @@ c
 =>
 >> puts "hello" if ""
 =>
-47. ¿Qu ́e resultados dan las siguientes operaciones?
+
+Respuesta: >> true.class
+           => TrueClass
+           >> false.class
+           => FalseClass        
+           >> puts "hello" if 0
+           hello
+           => nil
+           >> puts "hello" if nil
+           => nil
+           >> puts "hello" if ""
+           (irb):49: warning: string literal in condition           
+           hello
+           => nil
+
+47. ¿Qué resultados dan las siguientes operaciones?
+
 >> x = :sym
 => :sym
 >> x.class
@@ -229,7 +408,27 @@ c
 =>
 >> x.to_s == ’sym’
 =>
-48. ¿Qu ́e resultados se dan?
+
+Respuesta: >> x = :sym
+           => :sym
+           >> x.class
+           =>Symbol
+           >> x == ’sym’
+           =>false
+           >> x == :sym
+           =>true
+           >> z = :’a long symbol’
+           => :”a long symbol”
+           >> z.class
+           => Symbol
+           >> x == ’sym’.to_sym
+           => true
+           >> x.to_s == ’sym’
+           => true
+
+
+48. ¿Qué resultados se dan?
+
 >> s = "Ruby"
 => "Ruby"
 5
@@ -241,17 +440,46 @@ c
 >> t = "Java"
 => "Java"
 >> print s, t
-49. ¿Cu ́al es el resultado?
+
+Respuesta: >> s = "Ruby"
+           => "Ruby"
+           >> t = s
+           => "Ruby"
+           >> t[-1] = ""
+           => ""
+           >> print s
+           Rub=> nil
+           >> t = "Java"
+           => "Java"
+           >> print s, t
+           RubJava=> nil
+
+49. ¿Cuál es el resultado?
+
 >> "%d %s" % [3, "rubies"]
 =>
-50. ¿Cu ́ales son los resultados?
+
+Respuesta: >> "%d %s" % [3, "rubies"]
+           => “3 rubies”
+
+50. ¿Cuáles son los resultados?
+
 >> x, y = 4, 5
 =>
 >> z = x > y ? x : y
 =>
 >> x,y,z = [1,2,3]
 =>
-51. ¿Qu ́e resultados dan las siguientes operaciones?
+
+Respuesta: >> x, y = 4, 5
+           => [4, 5]
+           >> z = x > y ? x : y
+           => 5
+           >> x,y,z = [1,2,3]
+           => [1, 2, 3]
+
+51. ¿Qué resultados dan las siguientes operaciones?
+
 >> x = { :a => 1, :b => 2 }
 => {:b=>2, :a=>1}
 >> x.keys
@@ -276,23 +504,66 @@ c
 =>
 >> x
 =>
-52. ¿Qu ́e hace
-yield 4, 5
-?
-53. ¿Qu ́e hace la siguiente sentencia?
+
+Respuesta: >> x = { :a => 1, :b => 2 }
+           => {:a=>1, :b=>2}
+           >> x.keys
+           => [:a, :b]
+           >> x.values
+           => [1, 2]
+           >> x[:c] = 3
+           => 3
+           >> x
+           => {:a=>1, :b=>2, :c=>3}
+           >> x.delete(’a’)
+           => nil
+           >> x
+           =>{:a=>1, :b=>2, :c=>3}
+           >> x.delete(:a)
+           => 1
+           >> x
+           =>{:b=>2, :c=>3}
+           >> x = { :a => 1, :b => 2, :c => 4 }
+           => {:b=>2, :c=>4, :a=>1}
+           >> x.delete_if { |k,v| v % 2 == 0 }
+           => {:a=>1}
+           >> x
+           => {:a=>1}
+
+
+52. ¿Qué hace yield 4, 5?
+
+Respuesta: Metodo que puede usar el bloque mediante la palabra yield. Se proporcionan parametros a la llamada yield que son pasados al bloque.
+
+53. ¿Qué hace la siguiente sentencia? ¿Qué diferencia hay con la asignación counts = {}?
+
 counts = Hash.new(0)
-¿Qu ́e diferencia hay con la asignaci ́on
-counts = {}
-?
-54. ¿Qu ́e retorna esta expresi ́on?
+
+Respuesta: counts = Hash.new(0) crea un Hash de 0 elementos
+	   counts={} crea un array de 0 elementos.
+
+
+54. ¿Qué retorna esta expresión?
+
 ’hello world, hello LPP’.scan /\w+/
+
+Respuesta: => ["hello", "world", "hello", "LPP"]
+
 55. Explique que hacen estas sentencias:
+
 c = { :a => 3, :b => 2, :c => 1 }
 c.keys.sort.each { |k| puts c[k] }
-56. Escriba la direcci ́on del repositorio que ha creado en Gi
-tHub en la tarea habilitada en el campus
-virtual.
-57. Cierre la se
+
+Respuesta: c = { :a => 3, :b => 2, :c => 1 }
+           => {:a=>3, :b=>2, :c=>1}
+           c.keys.sort.each { |k| puts c[k] }
+           3
+           2
+           1
+           => [:a, :b, :c]
+
+Se crea un hash literal indicando parejas clave-valor y acto seguido se ordenan los valores mediante el metodo sort.
+
 
 
 	   
